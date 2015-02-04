@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1>Modal - Pure CSS (no Javascript)</h1>
+
+  <p>Example of modal in CSS only, here I use the pseudo selector ":target" and no javascript for modal action.</p>
+
+  <p>This works in IE9+ and all modern browsers.</p>
+
+  <hr />
+
+  <a href="#modal-one" class="btn btn-big">Modal!</a>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal-one" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h2>Edit Scheduked Report</h2>
+      <a href="#" class="btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"-->
+    </div>
+    <div class="modal-body">
+      <p>One modal example here! :D</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn">Nice!</a>  <!--CHANGED TO "#close"-->
+    </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
+
+</body>
+</html>
