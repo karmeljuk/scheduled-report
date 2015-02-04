@@ -2,37 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Scheduled Report</title>
+  <link href="css/style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <link href="css/uniform.css" media="screen" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<!--   <script type="text/javascript" src="js/jquery.tools.js"></script>
+  <script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script> -->
 </head>
 <body>
 
 <div class="wrap">
-
-  <h1>Modal - Pure CSS (no Javascript)</h1>
-
-  <p>Example of modal in CSS only, here I use the pseudo selector ":target" and no javascript for modal action.</p>
-
-  <p>This works in IE9+ and all modern browsers.</p>
-
+  <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, optio.</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium minus vero quam vel atque laudantium facere culpa necessitatibus eveniet assumenda.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nemo accusantium maiores impedit.</p>
   <hr />
-
-  <a href="#modal-one" class="btn btn-big">Modal!</a>
-
+  <a href="#modal-one" class="btn btn-big">Report</a>
 </div>
 
 <!-- Modal -->
 <div class="modal" id="modal-one" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Edit Scheduked Report</h2>
+      <p>Edit Scheduled Report</p>
       <a href="#" class="btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"-->
     </div>
     <div class="modal-body">
-      <p>One modal example here! :D</p>
+      <div class="form-container">
+        <form action="#" class="form" method="post" novalidate="">
+
+          <div class="group">
+            <div class="block">
+              <div class="field">
+                <label for="name">Name <span>*</span></label>
+                <input type="text" name="name" id="name" required="required" pattern="">
+              </div>
+
+              <div class="field">
+                <label for="send_to">Send to <span>*</span></label>
+                <input type="email" name="send_to" id="send_to" required="required">
+              </div>
+
+              <div class="field">
+                <label for="subject">Subject <span>*</span></label>
+                <input type="text" name="subject" id="subject" required="required">
+              </div>
+
+              <div class="field">
+                <label for="comments">Comments</label>
+                <textarea rows="2" cols="20" name="comments" id="comments"></textarea>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="field checkbox-group">
+                <div class="option clearfix">
+                  <label for="checkbox_scheduled-1">Is scheduled</label>
+                  <input type="checkbox" name="checkbox_scheduled" id="checkbox_scheduled-1" value="">
+                  <br>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="reported_period">Reported period</label>
+                <input list="reported_period" name="reported_period" value="Day">
+                <datalist id="reported_period">
+                  <option value="Day">
+                  <option value="Week">
+                  <option value="Month">
+                  <option value="Year">
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <fieldset>
+            <legend>Content</legend>
+            <div class="block">
+
+              <div class="field">
+                <label for="turbines_under">Include turbines under <span>*</span></label>
+                <input type="text" name="turbines_under" id="turbines_under" value="KK Global" required="required">
+              </div>
+
+              <div class="field checkbox-group">
+                <div class="option clearfix">
+                  <label for="production">Production</label>
+                  <input type="checkbox" name="production" id="production" checked="checked">
+                </div>
+                <div class="option clearfix">
+                  <label for="availability">Availability</label>
+                  <input type="checkbox" name="availability" id="availability" checked="checked">
+                </div>
+                <div class="option clearfix">
+                  <label for="events">Events</label>
+                  <input type="checkbox" name="events" id="events" checked="checked">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="max_count_1">Max-count</label>
+                <input type="text" name="max_count_1" id="max_count_1" value="0">
+              </div>
+
+              <fieldset>
+                <legend>Exclude these</legend>
+              </fieldset>
+
+            </div>
+
+            <div class="block">
+
+              <div class="field checkbox-group">
+                <div class="option clearfix">
+                  <label for="alarm_list">Alarm List</label>
+                  <input type="checkbox" name="alarm_list" id="alarm_list" value="">
+                  <br>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="max_count_2">Max-count</label>
+                <input type="text" name="max_count_2" id="max_count_2">
+              </div>
+
+              <div class="field">
+                <label for="min_urgency_level">Min-urgency level</label>
+                <input list="min_urgency_level" name="browser" value="Low">
+                <datalist id="min_urgency_level">
+                  <option value="Low">
+                  <option value="Middle">
+                  <option value="High">
+                </datalist>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <div id="form-submit" class="field clearfix submit">
+            <input type="submit" value="Send now">
+          </div>
+        </form>
+      </div>
     </div>
     <div class="modal-footer">
-      <a href="#" class="btn">Nice!</a>  <!--CHANGED TO "#close"-->
     </div>
     </div>
   </div>
