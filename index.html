@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <title>Scheduled Report</title>
   <link href="css/style.css" media="screen" rel="stylesheet" type="text/css"/>
-  <link href="css/uniform.css" media="screen" rel="stylesheet" type="text/css"/>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<!--   <script type="text/javascript" src="js/jquery.tools.js"></script>
-  <script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 
@@ -29,105 +26,121 @@
     </div>
     <div class="modal-body">
       <div class="form-container">
-        <form action="#" class="form" method="post" novalidate="">
+        <form action="#" class="form" method="post">
 
-          <div class="group">
-            <div class="block">
+          <div class="group-top">
+            <div class="block block-left">
               <div class="field">
                 <label for="name">Name <span>*</span></label>
-                <input type="text" name="name" id="name" required="required" pattern="">
+                <input type="text" name="name" id="name" required="required">
+                <span tooltip="The name of the report itself"></span>
               </div>
 
               <div class="field">
                 <label for="send_to">Send to <span>*</span></label>
                 <input type="email" name="send_to" id="send_to" required="required">
+                <span tooltip="The person(s) the mail should be sent to"></span>
               </div>
 
               <div class="field">
                 <label for="subject">Subject <span>*</span></label>
                 <input type="text" name="subject" id="subject" required="required">
+                <span tooltip="The subject name of the mail which is sent"></span>
               </div>
 
               <div class="field">
-                <label for="comments">Comments</label>
+                <label for="comments">Comments &nbsp;</label>
                 <textarea rows="2" cols="20" name="comments" id="comments"></textarea>
+                <span tooltip="Comments which will be attached inside the mail"></span>
               </div>
             </div>
 
             <div class="block">
-              <div class="field checkbox-group">
-                <div class="option clearfix">
-                  <label for="checkbox_scheduled-1">Is scheduled</label>
-                  <input type="checkbox" name="checkbox_scheduled" id="checkbox_scheduled-1" value="">
-                  <br>
+
+              <div class="field checkbox-group clearfix">
+                <div class="option">
+                  <label for="checkbox_scheduled">Is scheduled</label>
+                  <input type="checkbox" name="checkbox_scheduled" id="checkbox_scheduled" checked="ch">
+                  <span tooltip="If this is ticked, the “Reported period” will indicate how often the mail should be sent (weekly, daily, monthly, yearly)"></span>
                 </div>
               </div>
 
-              <div class="field">
+              <div class="field datalist period">
                 <label for="reported_period">Reported period</label>
-                <input list="reported_period" name="reported_period" value="Day">
-                <datalist id="reported_period">
+                <input list="reported_period_list" name="reported_period" id="reported_period" value="Day" >
+                <datalist id="reported_period_list">
                   <option value="Day">
                   <option value="Week">
                   <option value="Month">
                   <option value="Year">
                 </datalist>
+                <span tooltip="How often the mail should be sent (weekly, daily, monthly, yearly)"></span>
               </div>
             </div>
+
           </div>
           <div class="clear"></div>
 
-          <fieldset>
+          <fieldset class="content">
             <legend>Content</legend>
-            <div class="block">
+            <div class="block content-left">
 
-              <div class="field">
+              <div class="field turbines">
                 <label for="turbines_under">Include turbines under <span>*</span></label>
                 <input type="text" name="turbines_under" id="turbines_under" value="KK Global" required="required">
+                <span tooltip="Click this to select what turbines the mail should include data from"></span>
+                <span class="windmill sprite"></span>
               </div>
 
-              <div class="field checkbox-group">
-                <div class="option clearfix">
+              <div class="field checkbox-group clearfix">
+                <div class="option">
                   <label for="production">Production</label>
                   <input type="checkbox" name="production" id="production" checked="checked">
+                  <span tooltip="Include production data from the turbine(s), this could be how much power they generated and so fourth"></span>
                 </div>
-                <div class="option clearfix">
+                <div class="option">
                   <label for="availability">Availability</label>
                   <input type="checkbox" name="availability" id="availability" checked="checked">
+                  <span tooltip="How many percentage of the time has the turbine been running (higher is better)"></span>
                 </div>
-                <div class="option clearfix">
+                <div class="option">
                   <label for="events">Events</label>
                   <input type="checkbox" name="events" id="events" checked="checked">
+                  <span tooltip="An overview of the events from the turbine in the selected time frame (ticking this will enable/disable max-count, and the exclude this)"></span>
                 </div>
               </div>
 
-              <div class="field">
+              <div class="field max-count">
                 <label for="max_count_1">Max-count</label>
                 <input type="text" name="max_count_1" id="max_count_1" value="0">
+                <span tooltip="The max amount of events to include in the report"></span>
               </div>
 
-              <fieldset>
+              <fieldset class="exclude">
                 <legend>Exclude these</legend>
+                <a href="#" id="addScnt-1">[Add]</a>
+                <div class="exclude-container-1"></div>
               </fieldset>
 
             </div>
 
-            <div class="block">
+            <div class="block content-right">
 
-              <div class="field checkbox-group">
-                <div class="option clearfix">
-                  <label for="alarm_list">Alarm List</label>
-                  <input type="checkbox" name="alarm_list" id="alarm_list" value="">
-                  <br>
+              <div class="field checkbox-group clearfix">
+                <div class="option">
+                  <label for="checkbox_alarm">Alarm List</label>
+                  <input type="checkbox" name="checkbox_alarm" id="checkbox_alarm" checked="checked">
+                  <span tooltip="An overview of the alarms from the turbine in the selected time frame"></span>
                 </div>
               </div>
 
-              <div class="field">
+              <div class="field max-count">
                 <label for="max_count_2">Max-count</label>
-                <input type="text" name="max_count_2" id="max_count_2">
+                <input type="text" name="max_count_2" id="max_count_2" value="0">
+                <span tooltip="The max amount of alarms to include in the report"></span>
               </div>
 
-              <div class="field">
+              <div class="field min-urgency datalist">
                 <label for="min_urgency_level">Min-urgency level</label>
                 <input list="min_urgency_level" name="browser" value="Low">
                 <datalist id="min_urgency_level">
@@ -135,18 +148,27 @@
                   <option value="Middle">
                   <option value="High">
                 </datalist>
+                <span tooltip="The minimum urgency level of the alarms included."></span>
               </div>
+
+              <fieldset class="exclude">
+                <legend>Exclude these</legend>
+                <a href="#" id="addScnt-2">[Add]</a>
+                <div class="exclude-container-2"></div>
+              </fieldset>
 
             </div>
           </fieldset>
 
-          <div id="form-submit" class="field clearfix submit">
-            <input type="submit" value="Send now">
+          <div id="form-submit" class="form-footer field clearfix">
+            <a href="#"><input type="button" value="OK" class="sprite btn-ok"></a>
+            <a href="#"><input type="button" value="Cancel" class="sprite btn-cancel"></a>
+            <input type="reset" class="sprite btn-delete" value="Delete">
+            <input type="submit" class="sprite btn-submit" value="Send now">
+            <input type="button" class="sprite btn-pdf" value="PDF">
           </div>
         </form>
       </div>
-    </div>
-    <div class="modal-footer">
     </div>
     </div>
   </div>
