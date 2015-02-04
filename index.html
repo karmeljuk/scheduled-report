@@ -22,7 +22,7 @@
   <div class="modal-dialog">
     <div class="modal-header">
       <p>Edit Scheduled Report</p>
-      <a href="#" class="btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"-->
+      <a href="#" class="btn-close" aria-hidden="true"></a> <!--CHANGED TO "#close"-->
     </div>
     <div class="modal-body">
       <div class="form-container">
@@ -67,7 +67,7 @@
 
               <div class="field datalist period">
                 <label for="reported_period">Reported period</label>
-                <input list="reported_period_list" name="reported_period" id="reported_period" value="Day" >
+                <input list="reported_period_list" name="reported_period" id="reported_period" value="" >
                 <datalist id="reported_period_list">
                   <option value="Day">
                   <option value="Week">
@@ -85,6 +85,7 @@
             <legend>Content</legend>
             <div class="block content-left">
 
+            <div class="container">
               <div class="field turbines">
                 <label for="turbines_under">Include turbines under <span>*</span></label>
                 <input type="text" name="turbines_under" id="turbines_under" value="KK Global" required="required">
@@ -115,6 +116,7 @@
                 <input type="text" name="max_count_1" id="max_count_1" value="0">
                 <span tooltip="The max amount of events to include in the report"></span>
               </div>
+            </div>
 
               <fieldset class="exclude">
                 <legend>Exclude these</legend>
@@ -126,6 +128,7 @@
 
             <div class="block content-right">
 
+            <div class="container">
               <div class="field checkbox-group clearfix">
                 <div class="option">
                   <label for="checkbox_alarm">Alarm List</label>
@@ -142,7 +145,7 @@
 
               <div class="field min-urgency datalist">
                 <label for="min_urgency_level">Min-urgency level</label>
-                <input list="min_urgency_level" name="browser" value="Low">
+                <input list="min_urgency_level" name="browser" value="">
                 <datalist id="min_urgency_level">
                   <option value="Low">
                   <option value="Middle">
@@ -150,6 +153,7 @@
                 </datalist>
                 <span tooltip="The minimum urgency level of the alarms included."></span>
               </div>
+            </div>
 
               <fieldset class="exclude">
                 <legend>Exclude these</legend>
